@@ -24,12 +24,12 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/getAllCategories")
+    @GetMapping("/all")
     public List<Category> getAllCategories(){
         return categoryService.findAll();
     }
 
-    @PostMapping("/addCategory")
+    @PostMapping("/add")
     public ResponseEntity<Category> addCategory(@RequestBody Category category){
         if (category.getTitle() == null || category.getTitle().trim().length() == 0){
             return new ResponseEntity("Missed Param: Title", HttpStatus.NOT_ACCEPTABLE);
@@ -42,7 +42,7 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.add(category));
     }
 
-    @PutMapping("/updateCategory")
+    @PutMapping("/update")
     public ResponseEntity<Category> updateCategory(@RequestBody Category category){
         if (category.getTitle() == null || category.getTitle().trim().length() == 0){
             return new ResponseEntity("Missed Param: Title", HttpStatus.NOT_ACCEPTABLE);

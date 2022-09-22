@@ -25,12 +25,12 @@ public class PriorityController {
         this.priorityService = priorityService;
     }
 
-    @GetMapping("/getAllPriorities")
+    @GetMapping("/all")
     public List<Priority> getAllPriorities() {
         return priorityService.findAll();
     }
 
-    @PostMapping("/addPriority")
+    @PostMapping("/add")
     public ResponseEntity<Priority> addPriority(@RequestBody Priority priority) {
         if (priority.getId() != null && priority.getId() != 0) {
             return new ResponseEntity("Redundant param: id MUST be null", HttpStatus.NOT_ACCEPTABLE);
@@ -43,7 +43,7 @@ public class PriorityController {
         return ResponseEntity.ok(priorityService.add(priority));
     }
 
-    @PutMapping("/updatePriority")
+    @PutMapping("/update")
     public ResponseEntity<Priority> updatePriority(@RequestBody Priority priority) {
         if (priority.getTitle() == null || priority.getTitle().trim().length() == 0) {
             return new ResponseEntity("Missed Param: Title", HttpStatus.NOT_ACCEPTABLE);
