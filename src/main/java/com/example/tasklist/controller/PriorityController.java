@@ -89,6 +89,6 @@ public class PriorityController {
 
     @PostMapping("/search")
     public ResponseEntity<List<Priority>> search(@RequestBody PrioritySearchValues prioritySearchValues){
-        return ResponseEntity.ok(priorityService.findByTitle(prioritySearchValues.getText()));
+        return ResponseEntity.ok(priorityService.findByTitle(prioritySearchValues.getTitle()));
     }
 }

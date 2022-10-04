@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CategorySearchValues {
 
-    private String text;
+    private String title;
 }

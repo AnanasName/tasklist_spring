@@ -84,6 +84,6 @@ public class CategoryController {
 
     @PostMapping("/search")
     public ResponseEntity<List<Category>> search(@RequestBody CategorySearchValues categorySearchValues){
-        return ResponseEntity.ok(categoryService.findByTitle(categorySearchValues.getText()));
+        return ResponseEntity.ok(categoryService.findByTitle(categorySearchValues.getTitle()));
     }
 }
